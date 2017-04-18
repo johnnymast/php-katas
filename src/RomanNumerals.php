@@ -5,6 +5,8 @@ namespace JM\PHPKata;
 class RomanNumerals
 {
     /**
+     * Roman Numeral lookup table.
+     *
      * @var array
      */
     protected $lookup = [
@@ -24,21 +26,37 @@ class RomanNumerals
     ];
 
     /**
-     * @param $arg
+     * Convert any given decimal number into RomanNumerals.
+     *
+     * @param $glyphs
+     * @param int $solution
+     *
      * @return int
      */
     public function toNumber($glyphs, $solution = 0)
     {
-        // TODO: Throw invalid argument if it contains any invalid characters
-        // TODO: Throw invalid argument if strlen($glyphs) > 0 && $solution == 0
-
+        $glyphs = strtoupper($glyphs);
         $flipped = array_flip($this->lookup);
+
+        $invalid = array_filter(str_split($glyphs), function ($glyph) use ($flipped) {
+            return (isset($flipped[$glyph]) == false);
+        });
+
+        /**
+         * Throw InvalidArgumentException if we find any unknown characters
+         * in the $glyphs string. It Would not be a valid representation if
+         * we would give back 1900 when we pass MCM.XCIX to the function.
+         */
+        if (count($invalid) > 0) {
+            throw new \InvalidArgumentException('Non valid characters found in \''.$glyphs.'\'');
+        }
 
         do {
             $break = true;
 
             foreach ($flipped as $numeral => $value) {
                 $len = strlen($numeral);
+
                 if (substr($glyphs, 0, $len) == $numeral) {
                     $solution += $value;
                     $glyphs = substr($glyphs, $len);
@@ -51,18 +69,35 @@ class RomanNumerals
             }
         } while ($break === false);
 
+        /**
+         * If there are characters remaining or the solution 0
+         * it means we fail and not all could be parsed.
+         *
+         * BTW: Romans didn't have the number 0 so the
+         * solution would be invalid.
+         *
+         */
+        if (strlen($glyphs) > 0 || $solution == 0) {
+            throw new \InvalidArgumentException('Failed to parse the numerals');
+        }
+
         return $solution;
     }
 
     /**
-     * @param $arg
+     * Convert RomanNumerals into a decimal number.
+     *
+     * @param $number
+     * @param string $solution
+     *
      * @return string
      */
-    public function toNumeral($number)
+    public function toNumeral($number, $solution = '')
     {
-        $this->guardAgainstInvalidNumber($number);
+        if ($number <= 0) {
+            throw new \InvalidArgumentException('Invalid number');
+        }
 
-        $solution = '';
         foreach ($this->lookup as $limit => $glyph) {
             while ($number >= $limit) {
                 $solution .= $glyph;
@@ -71,15 +106,5 @@ class RomanNumerals
         }
 
         return $solution;
-    }
-
-    /**
-     * @param $number
-     */
-    private function guardAgainstInvalidNumber($number)
-    {
-        if ($number <= 0) {
-            throw new InvalidArgumentException;
-        }
     }
 }
