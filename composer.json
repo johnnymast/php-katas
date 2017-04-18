@@ -1,0 +1,22 @@
+{
+  "name": "johnnymast/php-kata",
+  "description": "my personal kata's",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Johnny Mast",
+      "email": "mastjohnny@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "JM\\PHPKata\\": "src/",
+      "JM\\PHPKata\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "phpspec/phpspec": "3.2.3",
+    "phpunit/phpunit": "5.7.19"
+  }
+}

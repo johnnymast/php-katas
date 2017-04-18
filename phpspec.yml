@@ -1,0 +1,5 @@
+suites:
+  kata_core:
+    namespace: JM\PHPKata
+    psr4_prefix: JM\PHPKata
+    spec_prefix: spec\JM\PHPKata
