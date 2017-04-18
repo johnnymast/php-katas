@@ -70,10 +70,10 @@ class RomanNumerals
         } while ($break === false);
 
         /**
-         * If there are characters remaining or the solution 0
+         * If there are characters remaining or the solution is 0
          * it means we fail and not all could be parsed.
          *
-         * BTW: Romans didn't have the number 0 so the
+         * BTW: Romans did not have the number 0 so the
          * solution would be invalid.
          *
          */
