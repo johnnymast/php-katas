@@ -29,6 +29,9 @@ class RomanNumerals
      */
     public function toNumber($glyphs, $solution = 0)
     {
+        // TODO: Throw invalid argument if it contains any invalid characters
+        // TODO: Throw invalid argument if strlen($glyphs) > 0 && $solution == 0
+
         $flipped = array_flip($this->lookup);
 
         do {
