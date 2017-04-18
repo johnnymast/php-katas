@@ -21,9 +21,14 @@ class RomanNumeralsSpec extends ObjectBehavior
         $this->shouldThrow('\InvalidArgumentException')->during('toNumber', ['MCM.XCIX']);
     }
 
+
     function it_should_translate_to_nummerals()
     {
 
         $this->toNumeral(100)->shouldBe('C');
+    }
+
+    function it_should_throw_and_invalidargument_exception_when_using_invalid_numbers() {
+        $this->shouldThrow('\InvalidArgumentException')->during('toNumeral', ['2.2']);
     }
 }

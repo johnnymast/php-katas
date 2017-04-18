@@ -94,7 +94,7 @@ class RomanNumerals
      */
     public function toNumeral($number, $solution = '')
     {
-        if ($number <= 0) {
+        if ($number <= 0 || is_int($number) == false) {
             throw new \InvalidArgumentException('Invalid number');
         }
 
