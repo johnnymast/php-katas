@@ -5,7 +5,16 @@ namespace JM\PHPKata;
 
 class StringCalculator
 {
-    public function add(string $numbers, array $delimiters = ["@", "*", "%",";", "\n", ","], array $parsed = [], int $sum = 0): int
+    /**
+     * Translate strings returning the the sum.
+     *
+     * @param string $numbers
+     * @param array $delimiters
+     * @param array $parsed
+     * @param int $sum
+     * @return int
+     */
+    public function add(string $numbers, array $delimiters = ["@", "*", "%",";", "\n", ","], array $parsed = [], int $sum = 0)
     {
         if (! empty($numbers)) {
 
