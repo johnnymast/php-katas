@@ -2,6 +2,9 @@
 
 namespace JM\PHPKata;
 
+/**
+ * RomanNumerals class
+ */
 class RomanNumerals
 {
     /**
@@ -48,7 +51,7 @@ class RomanNumerals
          * we would give back 1900 when we pass MCM.XCIX to the function.
          */
         if (count($invalid) > 0) {
-            throw new \InvalidArgumentException('Non valid characters found in \''.$glyphs.'\'');
+            throw new \InvalidArgumentException('Non valid characters found in \'' . $glyphs . '\'');
         }
 
         do {

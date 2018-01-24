@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace JM\PHPKata;
 
+/**
+ * StringCalculator class
+ */
 class StringCalculator
 {
     /**
@@ -14,16 +17,15 @@ class StringCalculator
      * @param int $sum
      * @return int
      */
-    public function add(string $numbers, array $delimiters = ["@", "*", "%",";", "\n", ","], array $parsed = [], int $sum = 0)
+    public function add(string $numbers, array $delimiters = ['@', '*', '%', ';', "\n", ','], array $parsed = [], int $sum = 0)
     {
-        if (! empty($numbers)) {
-
+        if (!empty($numbers)) {
             if (is_numeric($numbers) > 0) {
                 $numbers = trim($numbers, implode('', $delimiters));
                 $sum = intval($numbers);
 
                 if ($sum < 0) {
-                    throw new \InvalidArgumentException("negatives not allowed");
+                    throw new \InvalidArgumentException('negatives not allowed');
                 }
 
                 if ($sum > 1000) {
