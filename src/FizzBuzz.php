@@ -6,6 +6,8 @@ class FizzBuzz
 {
 
     /**
+     * Play the classic Fizzbuzz game.
+     *
      * @param int $number
      * @return int|string
      */
