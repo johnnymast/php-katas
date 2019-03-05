@@ -10,6 +10,8 @@ namespace JM\PHPKata\Extras;
 class Character
 {
     /**
+     * Container for the passed characters.
+     *
      * @var array
      */
     private $matrix;
