@@ -9,6 +9,9 @@ namespace JM\PHPKata\Extras;
  */
 class Character
 {
+    /**
+     * @var array
+     */
     private $matrix;
 
     /**
@@ -34,20 +37,30 @@ class Character
         }
     }
 
-    public function asString()
+    /**
+     * Create a string output.
+     *
+     * @return string
+     */
+    public function asString(): string
     {
         $out = '';
         foreach ($this->matrix as $index => $row) {
             foreach ($row as $cell) {
                 $out .= $cell;
             }
-            $out .=  "\n" ;
+            $out .= "\n";
         }
 
         return $out;
     }
 
-    public function __toString()
+    /**
+     * Return the matrix as a string.
+     *
+     * @return string
+     */
+    public function __toString(): string
     {
         return $this->asString();
     }

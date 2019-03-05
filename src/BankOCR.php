@@ -4,6 +4,11 @@ namespace JM\PHPKata;
 
 use JM\PHPKata\Extras\Character;
 
+/**
+ * Class BankOCR
+ *
+ * @package JM\PHPKata
+ */
 class BankOCR
 {
     /**
@@ -88,17 +93,20 @@ class BankOCR
 
     /**
      * BankOCR constructor.
-     *
-     * @param string $file
      */
     public function __construct()
     {
         $this->path = dirname(__FILE__).'/../data/BankOCR/fixtures';
     }
 
-    public function readFile($file = '')
+    /**
+     * Read the characters from a given file.
+     *
+     * @param string $file
+     * @return string
+     */
+    public function readFile($file = ''): string
     {
-
         $this->file = $file;
 
         $handle = fopen($this->path.'/'.$this->file, "r");
