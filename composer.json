@@ -16,7 +16,7 @@
     }
   },
   "require": {
-    "phpspec/phpspec": "3.2.3",
-    "phpunit/phpunit": "5.7.19"
+    "phpspec/phpspec": "^5",
+    "phpunit/phpunit": "^8"
   }
 }
